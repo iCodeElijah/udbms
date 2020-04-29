@@ -33,6 +33,7 @@ public class Login extends javax.swing.JFrame {
         roles = new javax.swing.JComboBox<>();
         signup = new javax.swing.JLabel();
         cancel = new javax.swing.JLabel();
+        infor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(840, 710));
@@ -146,26 +147,31 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        infor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(roles, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPasswordFieldPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Welcome, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(infor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addComponent(roles, javax.swing.GroupLayout.Alignment.CENTER, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPasswordFieldPassword, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Password, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldUsername, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Username, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonLogin, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Welcome, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {Password, Username, jPasswordFieldPassword, jTextFieldUsername, roles});
@@ -187,7 +193,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(roles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                .addGap(59, 59, 59)
+                .addComponent(infor, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -238,12 +246,11 @@ public class Login extends javax.swing.JFrame {
 
             String access = ( roles.getSelectedItem ().toString () );
 
-            if ( access == "Administrator" ) {
+            if ( "Administrator".equals ( access ) ) {
 
                 if ( count == 1 ) {
 
-                    JOptionPane.showMessageDialog ( null , "Success" );
-
+                    infor.setText ( "Success" );
                     Dash das = new Dash ();
                     das.setVisible ( true );
                     dispose ();
@@ -252,18 +259,17 @@ public class Login extends javax.swing.JFrame {
 
                 else {
 
-                    JOptionPane.showMessageDialog ( null , "Oops Either Username or Password is incorrect, please try again" );
+                    infor.setText ( "Oops Either Username or Password is incorrect, please try again" );
 
                 }
 
             }
 
-            if ( access == "Technician/ Engineer" ) {
+            if ( "Technician/ Engineer".equals ( access ) ) {
 
                 if ( count == 1 ) {
 
-                    JOptionPane.showMessageDialog ( null , "Success" );
-
+                    infor.setText ( "Success" );
                     Dash dashy = new Dash ();
                     dashy.setVisible ( true );
                     dispose ();
@@ -272,7 +278,7 @@ public class Login extends javax.swing.JFrame {
 
                 else {
 
-                    JOptionPane.showMessageDialog ( null , "Oops Either Username or Password is incorrect, please try again" );
+                    infor.setText ( "Oops Either Username or Password is incorrect, please try again" );
 
                 }
 
@@ -363,11 +369,43 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonLoginMouseEntered
 
+    public static void main ( String args[] ) {
+
+        try {
+            for ( javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels () ) {
+                if ( "Windows".equals ( info.getName () ) ) {
+                    javax.swing.UIManager.setLookAndFeel ( info.getClassName () );
+                    break;
+                }
+            }
+        }
+        catch ( ClassNotFoundException ex ) {
+            java.util.logging.Logger.getLogger ( Signup.class.getName () ).log ( java.util.logging.Level.SEVERE , null , ex );
+        }
+        catch ( InstantiationException ex ) {
+            java.util.logging.Logger.getLogger ( Signup.class.getName () ).log ( java.util.logging.Level.SEVERE , null , ex );
+        }
+        catch ( IllegalAccessException ex ) {
+            java.util.logging.Logger.getLogger ( Signup.class.getName () ).log ( java.util.logging.Level.SEVERE , null , ex );
+        }
+        catch ( javax.swing.UnsupportedLookAndFeelException ex ) {
+            java.util.logging.Logger.getLogger ( Signup.class.getName () ).log ( java.util.logging.Level.SEVERE , null , ex );
+        }
+
+        java.awt.EventQueue.invokeLater ( () -> {
+
+            new Login ().setVisible ( true );
+
+        } );
+
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Password;
     private javax.swing.JLabel Username;
     private javax.swing.JLabel Welcome;
     private javax.swing.JLabel cancel;
+    private javax.swing.JLabel infor;
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordFieldPassword;

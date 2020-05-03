@@ -32,19 +32,25 @@ public class project extends javax.swing.JFrame {
 
     private void updateTable () {
 
-        String sql = "SELECT * FROM project";
-
         try {
 
+            String sql = "SELECT * FROM project";
             pst = conn.prepareStatement ( sql );
             rs = pst.executeQuery ();
 
             while ( rs.next () ) {
 
-                String d = rs.getString ( "className" );
-                String e = rs.getString ( "homeWork" );
-                String f = rs.getString ( "dueDate" );
-                model.addRow ( new Object[]{ d , e , f } );
+                String d = rs.getString ( "id" );
+                String e = rs.getString ( "asset" );
+                String f = rs.getString ( "manufacturer" );
+                String g = rs.getString ( "model" );
+                String h = rs.getString ( "serial" );
+                String i = rs.getString ( "equipmentlocaion" );
+                String j = rs.getString ( "maintenanceresponsibility" );
+                String k = rs.getString ( "service" );
+                String l = rs.getString ( "nextservice" );
+                String m = rs.getString ( "statusflag" );
+                model.addRow ( new Object[]{ d , e , f , g , h , i , j , k , l , m } );
 
             }
 
